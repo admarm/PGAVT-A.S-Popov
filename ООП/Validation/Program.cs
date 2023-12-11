@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -7,9 +7,10 @@ public class Person
 {
     private string firstName;
     private string lastName;
-    private int age, salary;
+    private int age;
+    private double salary;
 
-    public Person(string firstName, string lastName, int age, int salary)
+    public Person(string firstName, string lastName, int age, double salary)
     {
         validation_firstName(firstName);
         validation_lastName(lastName);
@@ -40,7 +41,7 @@ public class Person
         private set { age = value; }
     }
 
-    public int Salary
+    public double Salary
     {
         get { return salary; }
         private set { salary = value; }
@@ -73,7 +74,7 @@ public class Person
         this.age = age;
     }
 
-    private void validation_salary(int salary)
+    private void validation_salary(double salary)
     {
         if (salary < 460)
         {
@@ -99,7 +100,7 @@ public class Program
         for (int i = 0; i < lines; i++)
         {
             var cmdArgs = Console.ReadLine().Split();
-            var person = new Person(cmdArgs[0], cmdArgs[1], int.Parse(cmdArgs[2]), int.Parse(cmdArgs[3]));
+            var person = new Person(cmdArgs[0], cmdArgs[1], int.Parse(cmdArgs[2]), double.Parse(cmdArgs[3]));
             persons.Add(person);
         }
 
